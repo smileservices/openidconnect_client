@@ -1,0 +1,101 @@
+.image-select {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  border-radius: 0.125rem;
+  padding: 0.5rem;
+  background-color: lighten($theme-color-accent-secondary, 25%);
+
+  .label-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: space-between;
+  }
+}
+
+.image-upload {
+  border-radius: 0.125rem;
+  padding: 0.5rem;
+  background-color: lighten($theme-color-accent-secondary, 25%);
+
+  .dropzone {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
+    background-color: $theme-color-accent-secondary;
+    margin-bottom: $padding-unit-md;
+    padding: 1.5*$padding-unit $padding-unit;
+    border: dotted 2px $theme-color-accent-main;
+    border-radius: $radius-medium;
+    color: $theme-color-white;
+    cursor: pointer;
+    .icon {
+      font-size: 1.75rem;
+      color: $theme-color-white;
+    }
+  }
+
+  .upload-area {
+    position: relative;
+  }
+
+  .dropzone-input {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: $padding-unit;
+
+    .thumbs-container {
+      //min-height: 3*$fontsize-big;
+      display: flex;
+      flex-direction: row;
+      gap: $padding-unit;
+      justify-content: center;
+
+      .file-container {
+        width: 150px;
+        min-height: 100px;
+
+        .toolbar.thumbnail {
+          display: none;
+          margin: 0;
+          padding: 0;
+          flex-direction: row;
+          gap: 0.5rem;
+
+          & > * {
+            font-size: 0.75rem;
+            padding: 0.25rem;
+            &:hover {
+              color: $theme-color-accent-main;
+            }
+          }
+        }
+
+        &:hover {
+          cursor: pointer;
+          box-shadow: 0px 0px 6px 0px $theme-color-accent-secondary;
+
+          .toolbar.thumbnail {
+            display: flex;
+          }
+        }
+      }
+
+      img {
+        border-radius: $radius-medium;
+      }
+
+      .file-thumb {
+
+      }
+    }
+  }
+}
+
+.toolbar.thumbnail {
+  top: 0;
+  right: 0;
+}

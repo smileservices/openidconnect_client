@@ -1,0 +1,79 @@
+.item.document {
+  .doc-name {
+    font-weight: 500;
+    text-transform: capitalize;
+    color: $theme-color-accent-main;
+  }
+}
+
+.detail {
+  .document-verifications-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    .verification-item {
+      background-color: transparentize($theme-color-accent-secondary, 0.7);
+      color: $theme-color-accent-main;
+      padding: 0.5rem;
+      border-radius: 0.25rem;
+    }
+  }
+}
+
+.vault-open {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+
+  border-radius: 0.25rem;
+  width: -webkit-fill-available;
+
+  .header {
+    font-size: 1rem;
+    font-weight: 700;
+    color: $theme-color-accent-main;
+  }
+
+  [class^="icon-"], [class*=" icon-"] {
+    font-size: 1.25rem;
+  }
+
+  &.secure {
+    background-color: transparentize($theme-color-accent-secondary, 0.7);
+    border: 1px solid $theme-color-accent-secondary;
+
+    [class^="icon-"], [class*=" icon-"] {
+      color: $theme-color-accent-main;
+    }
+  }
+
+  &.unsecured {
+    background-color: transparentize($theme-color-alert, 0.7);
+    border: 1px solid $theme-color-alert;
+
+    [class^="icon-"], [class*=" icon-"] {
+      color: $theme-color-danger;
+    }
+  }
+
+}
+
+.document-file {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.25rem 1rem;
+  color: $theme-color-accent-secondary;
+  background-color: $theme-color-bg-main;
+  border-radius: 0.25rem;
+
+  &:hover {
+    cursor: pointer;
+    background-color: transparentize($theme-color-bg-main, 0.5);
+  }
+}

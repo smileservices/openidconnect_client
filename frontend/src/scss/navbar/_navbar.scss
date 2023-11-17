@@ -1,0 +1,45 @@
+nav {
+  position: fixed;
+  padding: 0.75rem 0.75rem;
+  z-index: $zindex-navbar;
+
+  #sidebar-collapse-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 2rem;
+    border: 1px solid $theme-color-accent-main;
+    background-color: $theme-color-white;
+
+    [class^="icon-"] {
+      color: $theme-color-accent-main;
+    }
+
+    #sidebar-button-alert {
+      position: absolute;
+      right: 0.25rem;
+      border-radius: 1rem;
+      width: 1.25rem;
+      height: 1.25rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 500;
+      background-color: $theme-color-white;
+    }
+
+    &:hover {
+      cursor: pointer;
+      border: 1px solid $theme-color-accent-secondary;
+
+      [class^="icon-"] {
+        color: $theme-color-accent-secondary;
+      }
+    }
+  }
+
+
+}

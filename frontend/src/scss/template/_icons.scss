@@ -1,0 +1,31 @@
+[class^="icon-"], [class*=" icon-"] {
+  font-size: 1rem;
+  color: $theme-color-accent-secondary;
+
+  &.success {
+    color: $theme-color-success!important;
+  }
+
+  &.success-invert {
+    color: $theme-color-text-tertiary!important;;
+  }
+
+  &.alert {
+    color: $theme-color-alert!important;;
+  }
+
+  &.danger {
+    color: $theme-color-danger!important;;
+  }
+
+}
+
+.circle-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2*$fontsize-big;
+  height: 2*$fontsize-big;
+  background-color: $theme-color-bg-main;
+  border-radius: 2*$fontsize-big;
+}

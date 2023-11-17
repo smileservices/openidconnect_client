@@ -1,0 +1,25 @@
+@media (max-width: $width-sm) {
+
+  aside#sidebar .content {
+    width: 100%;
+  }
+}
+
+@media (min-width: $width-xxl) {
+
+  // big screens have sidebar always shown
+  body {
+    padding-left: $sidebar-width;
+  }
+  nav {
+    margin-left: -$sidebar-width;
+  }
+  aside#sidebar {
+    display: block;
+
+    .content .minimize {
+      display: none
+    }
+  }
+
+}

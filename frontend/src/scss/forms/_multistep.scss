@@ -1,0 +1,37 @@
+.form-multistep-container {
+
+  ul.progress {
+    margin-bottom: $padding-unit-big;
+    display: flex;
+    justify-content: space-between;
+
+    li {
+      flex-grow: 1;
+      flex-basis: 0;
+      text-align: center;
+      padding: 2%;
+      color: $color-text-c2;
+      cursor: pointer;
+      clip-path: polygon(0 0, 95% 0, 100% 50%, 95% 100%, 0 100%, 5% 50%);
+    }
+
+    li:first-child {
+      clip-path: polygon(0 0, 95% 0, 100% 50%, 95% 100%, 0 100%, 0 50%);
+    }
+
+    li:last-child {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 5% 50%);
+    }
+
+    li.completed {
+      color: $color-text-c1;
+      background-color: $theme-color-accent;
+    }
+
+    li.active {
+      color: $color-text-c1;
+      background-color: var(--color-blue-dark);
+    }
+
+  }
+}

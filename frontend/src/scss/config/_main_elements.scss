@@ -1,0 +1,26 @@
+/* Important Elements Config */
+
+//navbar
+$navbar-background: $color-background;
+$nav-padding: $padding-unit-md;
+$nav-height: $fontsize-big*2 + $nav-padding*2;
+
+//footer
+$footer-background: shade-color($theme-color-main, 70);
+$footer-text-color: $theme-color-text-c;
+
+//dropdowns
+$dropdown-bg: lighten($theme-color-main, 10);
+$dropdown-text: lighten($theme-color-accent, 10);
+$dropdown-hover-bg: darken($dropdown-bg, 10);
+$dropdown-hover-text: lighten($dropdown-text, 10);
+
+//cards
+$card-color-bg: lighten($color-background, 20);
+$card-text-color: $color-text;
+
+//functional
+$color-status-active: $theme-color-success;
+$color-status-inactive: $theme-color-info;
+$color-danger: $theme-color-danger;
+$color-careful: $theme-color-alert;

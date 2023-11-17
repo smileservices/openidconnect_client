@@ -1,0 +1,22 @@
+version: "3.7"
+
+services:
+  oidc-client-api:
+
+    build: .
+    depends_on:
+      - oidc-client-static
+    command: python -m uvicorn main:app --host 0.0.0.0 --reload --port 8081
+    ports:
+      - "8081:8081"
+    volumes:
+      - ./:/oidc_client/
+    restart: always
+
+  oidc-client-static:
+    build: nginx/
+    ports:
+      - "8010:80"
+    volumes:
+      - ./frontend/static/:/www-data
+    restart: always

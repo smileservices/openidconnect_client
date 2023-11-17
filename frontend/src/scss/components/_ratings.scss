@@ -1,0 +1,46 @@
+
+.rating {
+  font-size: $fontsize-sm;
+  color: $color-text-c1;
+
+  a {
+    color: $theme-color-accent;
+  }
+
+  .stars {
+    color: $color-careful;
+    margin-right: $padding-unit-sm;
+  }
+
+  .ratingCount {
+    font-size: 0.75rem;
+    font-style: normal;
+  }
+}
+
+.thumbs {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: $padding-unit-big;
+  font-size: $fontsize-md;
+
+  [class^="icon-thumbs"] {
+    margin-left: $padding-unit-sm*0.75;
+  }
+
+  a, a:visited {
+    color: $color-text-c1;
+  }
+
+  a:hover {
+    color: $theme-color-accent;
+  }
+
+  .voted {
+    a, a:visited {
+      color: $theme-color-accent;
+    }
+  }
+}

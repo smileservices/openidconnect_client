@@ -1,0 +1,121 @@
+footer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: $padding-unit-md;
+  margin-top: $padding-unit-big*3;
+  min-height: $padding-unit-big*15;
+  padding: $padding-unit*6;
+  //background-image: linear-gradient($footer-background, darken($footer-background, 5));
+  color: $footer-text-color;
+
+  .header {
+    color: $theme-color-main;
+
+    p {
+      font-size: $fontsize-md;
+      line-height: $lineheight-base;
+      color: $footer-text-color;
+    }
+  }
+
+  section {
+    h4.header {
+      font-weight: bold;
+      font-size: $fontsize-big;
+      line-height: $lineheight-base;
+      color: $theme-color-main;
+      margin-bottom: $padding-unit-sm;
+
+      span {
+        color: $theme-color-main;
+      }
+    }
+  }
+
+  a {
+    color: $footer-text-color !important;
+    white-space: nowrap;
+    margin-bottom: $padding-unit-sm;
+  }
+
+  a:hover {
+    color: $theme-color-main !important;
+  }
+
+  section.about {
+    min-width: $fontsize-md*20;
+    max-width: $fontsize-md*40;
+
+    .button-links-container {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+  }
+
+  section.links {
+    display: flex;
+    flex-direction: column;
+    gap: $padding-unit-sm;
+  }
+
+  section.back-to-top {
+    display: flex;
+    flex-direction: column;
+    gap: $padding-unit-md;
+
+    h4 {
+      transform: rotate(-90deg);
+      height: 96px;
+      display: flex;
+      align-items: center;
+      font-weight: 500;
+      font-size: $fontsize-big;
+      line-height: $lineheight-base;
+      color: $color-text;
+    }
+
+    img {
+      height: $fontsize-big*4;
+    }
+  }
+
+  section.back-to-top:hover {
+    cursor: pointer;
+  }
+
+  section.social {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .socials {
+      display: flex;
+      gap: $padding-unit-sm;
+
+      .icon {
+        width: $fontsize-big*2;
+        height: $fontsize-big*2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $theme-color-main;
+        border-radius: 50%;
+        color: $footer-text-color;
+      }
+
+      .icon:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+}

@@ -1,0 +1,124 @@
+.alert {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  text-align: left;
+  align-items: center;
+
+  [class^="icon-"] {
+    font-size: 1.5rem;
+  }
+
+  .alert-toolbar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+
+    > * {
+      font-size: 0.65rem !important;
+      padding: 0.25rem;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.alert.system-message {
+  position: fixed;
+  z-index: $zindex-top-level;
+  margin: 0;
+  border-radius: 0.25rem;
+  min-width: 15rem;
+  max-width: 25rem;
+  top: 2rem;
+  right: 2rem;
+  padding: 1rem 1.5rem;
+  animation: growDown 0.2s ease-in-out;
+
+  .alert-toolbar {
+    width: 95%;
+    top: 0.15rem;
+    right: 0.15rem;
+  }
+}
+
+.alert-success {
+  color: darken($theme-color-success, 35);
+  background-color: lighten($theme-color-success, 20%);
+  border: 1px solid darken($theme-color-success, 10);
+
+  [class^="icon-"] {
+    color: darken($theme-color-success, 35);
+  }
+
+  .alert-toolbar > * {
+    color: darken($theme-color-success, 20) !important;
+
+    &:hover {
+      color: darken($theme-color-success, 30) !important;
+    }
+  }
+}
+
+.alert-info {
+  color: darken($theme-color-info, 35);
+  background-color: lighten($theme-color-info, 20%);
+  border: 1px solid darken($theme-color-info, 10);
+
+  [class^="icon-"] {
+    color: darken($theme-color-info, 35);
+  }
+
+  .alert-toolbar > * {
+    color: darken($theme-color-info, 20) !important;
+
+    &:hover {
+      color: darken($theme-color-info, 30) !important;
+    }
+  }
+}
+
+.alert-alert {
+  color: darken($theme-color-alert, 35);
+  background-color: lighten($theme-color-alert, 20%);
+  border: 1px solid darken($theme-color-alert, 10);
+
+  [class^="icon-"] {
+    color: darken($theme-color-alert, 35);
+  }
+
+  .alert-toolbar > * {
+    color: darken($theme-color-alert, 20) !important;
+
+    &:hover {
+      color: darken($theme-color-alert, 30) !important;
+    }
+  }
+}
+
+.alert-danger {
+  color: darken($theme-color-danger, 35);
+  background-color: lighten($theme-color-danger, 20%);
+  border: 1px solid darken($theme-color-danger, 10);
+
+  [class^="icon-"] {
+    color: darken($theme-color-danger, 35);
+  }
+
+  .alert-toolbar > * {
+    color: darken($theme-color-danger, 20) !important;;
+
+    &:hover {
+      color: darken($theme-color-danger, 30) !important;
+    }
+  }
+}

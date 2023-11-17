@@ -1,0 +1,26 @@
+@media (max-width: 480px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+/* If the viewport is 480px or larger, increase the base font size */
+//@media (min-width: 480px) {
+//  html {
+//    font-size: 18px;
+//  }
+//}
+
+/* If the viewport is 768px or larger, increase the base font size again */
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+/* If the viewport is 1024px or larger, increase the base font size once more */
+@media (min-width: 1024px) {
+  html {
+    font-size: 22px;
+  }
+}

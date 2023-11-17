@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block main %}
+<main class="homepage" id="oidc_authorize">
+    <div class="top">
+        <div class="intro">
+            <div class="logo">OIDC Client</div>
+            <div class="cta">
+                <p>Setup for authorization code.</p>
+            </div>
+        </div>
+        <div class="form-container" id="main-app"></div>
+    </div>
+</main>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ STATIC_ROUTE }}/js/main-app.js"></script>
+{% endblock %}

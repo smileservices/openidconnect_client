@@ -1,0 +1,159 @@
+$form-input-bg: $theme-color-bg-main;
+$form-input-bg-focus: $theme-color-bg-main;
+$form-input-text: $theme-color-text-main;
+$form-input-text-focus: $theme-color-text-main;
+$form-input-border: $theme-color-text-secondary;
+$form-input-border-focus: $theme-color-accent-main;
+$form-input-radius: $radius-medium;
+
+.form-container {
+  position: relative;
+  background-color: $color-background-1;
+  border-radius: $radius-big;
+  min-width: 22rem;
+}
+
+form {
+  //position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: $padding-unit-big;
+  width: 100%;
+
+  > * {
+    margin: 0;
+  }
+
+  label {
+    font-weight: 600;
+    color: $theme-color-text-secondary;
+    display: flex;
+    align-items: center;
+  }
+
+  .header {
+    //border-bottom: 2px solid $color-background-3;
+    line-height: 2rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .buttons-container {
+    display: flex;
+    gap: $padding-unit-big;
+    justify-content: end;
+    margin-top: 1.5rem;
+  }
+
+  .btn {
+    max-width: none;
+  }
+
+  .row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+
+    > * {
+      flex-grow: 1;
+    }
+
+    .form-group input {
+      flex-grow: 0;
+    }
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    flex-grow: 1;
+
+    label {
+      font-size: $fontsize-md;
+    }
+
+    input {
+      flex-grow: 1;
+      height: fit-content;
+    }
+
+    input, textarea {
+      color: $color-text;
+      border-radius: $radius-medium;
+      border: 1px solid $theme-color-accent-main;
+      padding: $padding-unit-sm;
+    }
+  }
+
+  .form-group.row {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    gap: $padding-unit-big;
+  }
+
+  .form-group-checkbox {
+    .checkbox-input {
+      display: flex;
+      align-items: center;
+      gap: $padding-unit-sm*0.5;
+    }
+  }
+
+  .invalid-feedback {
+    display: block;
+  }
+
+  .form-control_invalid__control {
+    border-color: var(--color-text-red);
+  }
+
+}
+
+.form-group .ss-main {
+  .ss-single-selected, .ss-multi-selected {
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    border-radius: $form-input-radius;
+  }
+}
+
+textarea {
+  resize: vertical;
+}
+
+input {
+  padding: 0.125rem 0.5rem;
+  border-radius: $radius-medium;
+  border: 1px solid $form-input-border;
+}
+
+.url-input-container {
+  //display: flex;
+  //align-items: center;
+  //justify-content: center;
+
+  .url-input {
+    color: $theme-color-accent-main;
+    padding: 0.25rem 1rem;
+    background-color: lighten($theme-color-accent-secondary, 25%);
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  input {
+    font-weight: 500;
+    padding: 0 0.25rem!important;
+  }
+}
+
+@import "info";
+@import "waiting";
+@import "image_input";
+//@import "bootstrap_forms"; //bloated asfk

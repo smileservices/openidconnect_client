@@ -1,0 +1,135 @@
+$button-radius: $radius-medium;
+
+$button-bg: $theme-color-accent-main;
+$button-text: $theme-color-white;
+
+$button-secondary-text: $theme-color-accent-main;
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: $padding-unit-md;
+  margin: 0;
+  padding: calc($padding-unit-md / 2) $padding-unit-big;
+  flex-grow: 1;
+  border-radius: $button-radius;
+  font-weight: 600;
+  font-size: $fontsize-md;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  background-color: $button-bg;
+  color: $button-text;
+
+  &:hover {
+    box-shadow: 0px 0px 6px 0px $button-bg;
+  }
+
+  span.icon {
+    font-size: $fontsize-sm;
+    font-weight: 800 !important;
+  }
+}
+
+a.btn:visited {
+  color: $button-text;
+}
+
+.btn.secondary {
+  color: $button-secondary-text;
+  border: 1.5px solid $theme-color-accent-main;
+  background-color: $theme-color-white;
+
+  &:hover {
+    box-shadow: 0px 0px 6px 0px $button-secondary-text;
+  }
+}
+
+.btn.tertiary {
+  color: $button-secondary-text;
+  background-color: transparent;
+  padding: 0.25rem;
+  font-weight: 400;
+  margin: 0;
+
+  &:hover {
+    font-weight: 600;
+    box-shadow: none;
+  }
+}
+
+.btn.success {
+  background-color: $theme-color-success;
+  color: $theme-color-white;
+
+  &:hover {
+    box-shadow: 0px 0px 6px 0px $theme-color-success;
+  }
+}
+
+.btn.danger {
+  background-color: $theme-color-danger;
+
+  &:hover {
+    box-shadow: 0px 0px 6px 0px $theme-color-danger;
+  }
+}
+
+.btn.secondary.danger {
+  color: $theme-color-danger;
+  border: 1.5px solid $theme-color-danger;
+  background-color: $theme-color-white;
+
+  &:hover {
+    box-shadow: 0px 0px 6px 0px $theme-color-danger;
+  }
+}
+
+.btn.waiting {
+  &:hover {
+    cursor: not-allowed;
+    filter: none;
+  }
+
+  > * {
+    margin-right: 1rem;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.btn.block {
+  max-width: 100%;
+  width: 100%;
+}
+
+.btn[disabled], .btn:disabled {
+  cursor: not-allowed;
+  background-color: transparentize($button-bg, 0.5)
+}
+
+.btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 1.5rem;
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 6px 0px $theme-color-accent-main;
+  }
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+  flex-grow: 1;
+}
+

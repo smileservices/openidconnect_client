@@ -1,0 +1,2 @@
+source venv/local/bin/bin/activate
+python -m uvicorn main:app --reload --port 8081 --log-level trace

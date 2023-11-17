@@ -1,0 +1,18 @@
+venv
+*.env
+*.pyc
+*.log
+alembic.ini
+
+# npm assets
+/frontend/static/css/
+/frontend/static/js/
+/frontend/node_modules/
+
+# pycharm specific
+.idea/runConfigurations/specific.xml
+
+# local dev usually set up the services in the root
+/STORAGE
+/NEXTCLOUD
+/POSTGRES

@@ -1,0 +1,74 @@
+.react-select {
+  color: $color-text;
+  font-size: $fontsize-md;
+
+  .form-control__placeholder {
+    font-size: $fontsize-md;
+  }
+
+  .form-control__indicator-separator {
+    display: none;
+  }
+
+  .form-control__control {
+    background-color: $color-background;
+    border: none;
+    border-radius: $radius-medium;
+  }
+
+  .form-control__value-container, .form-control__single-value {
+    color: $color-text;
+  }
+
+  .form-control__value-container, .form-control__value-container--is-multi {
+    background-color: $color-background;
+  }
+
+  .form-control__multi-value {
+    background-color: $color-background-3;
+    border-radius: $radius-medium;
+  }
+
+  .form-control__multi-value__label {
+    color: $color-text;
+  }
+
+  .form-control__input {
+    color: $color-text;
+  }
+
+  .form-control__control--is-disabled {
+    background-color: $color-background-1;
+
+    .form-control__indicator.form-control__dropdown-indicator {
+      color: $color-background-1;
+    }
+
+    .form-control__value-container {
+      background-color: $color-background-1;
+
+      .form-control__single-value {
+        color: $color-background-1;
+        font-style: italic;
+      }
+    }
+  }
+
+  .form-control__multi-value__remove {
+    color: $color-text;
+    cursor: pointer;
+  }
+
+  .form-control__menu {
+    background-color: $color-background-1;
+    border-radius: $radius-big;
+
+    .form-control__option, .form-control__option--is-selected {
+      color: $color-text;
+    }
+
+    .form-control__option--is-focused {
+      color: $color-background-1;
+    }
+  }
+}

@@ -1,0 +1,38 @@
+.sidebar .body.user {
+  gap: 1.5rem;
+
+  .personas {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    .persona {
+      &:hover {
+        cursor: pointer;
+        background-color: lighten($sidebar-color-bg-secondary, 10%);
+      }
+    }
+  }
+
+  .new-persona {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    .icon-new {
+      font-size: 1.75rem;
+      color: $theme-color-accent-secondary !important;
+
+      &:hover {
+        cursor: pointer;
+        color: $theme-color-white !important;
+      }
+    }
+  }
+
+  .sidebar-button:hover {
+    cursor: pointer;
+    background-color: lighten($sidebar-color-bg-secondary, 10%);
+  }
+}

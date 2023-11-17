@@ -1,0 +1,81 @@
+.alert {
+  margin-bottom: 0;
+
+  span.close {
+    top: 0.25rem;
+    right: 0.25rem;
+    font-size: 0.75rem;
+  }
+
+  span.close:hover {
+    cursor: pointer;
+  }
+}
+
+
+.toolbar {
+  position: absolute;
+  right: 0.35rem;
+  top: 0.35rem;
+  display: flex;
+  flex-direction: row;
+  gap: 0.35rem;
+
+  > a {
+    display: flex;
+    font-size: 0.9rem;
+    padding: 0.25rem;
+    //border-radius: $radius-small;
+    color: $color-text;
+  }
+
+  > a:hover {
+    //background-color: $color-background;
+    //transition: background-color 0.5s ease-in-out;
+    //border-radius: $radius-small;
+    cursor: pointer;
+  }
+
+  > a.delete:hover {
+    transition: color 0.5s ease-in-out;
+    color: $color-danger;
+  }
+}
+
+.alert-toolbar {
+  position: absolute;
+  right: 0.1rem;
+  top: 0.1rem;
+  display: flex;
+  flex-direction: row;
+  gap: 0.35rem;
+
+  > span {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+    border-radius: $radius-small;
+    color: $theme-color-accent;
+  }
+
+  > span:hover {
+    background-color: rgba($color-background-3, 0.2);
+    transition: background-color 0.5s ease-in-out;
+    border-radius: $radius-small;
+    cursor: pointer;
+  }
+}
+
+
+.confirm {
+  color: $color-danger;
+
+  .option {
+    margin: 0.35rem;
+  }
+
+  .option:hover {
+    color: $theme-color-accent;
+    border-bottom: 1px solid $theme-color-accent;
+    cursor: pointer;
+  }
+}

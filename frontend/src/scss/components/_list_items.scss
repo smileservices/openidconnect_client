@@ -1,0 +1,25 @@
+ul {
+  display: flex;
+  flex-direction: column;
+  gap: $padding-unit-md;
+}
+
+li.list-item {
+  display: flex;
+  flex-direction: row;
+  gap: $fontsize-big;
+  padding-right: $fontsize-big;
+  border-radius: $radius-medium;
+  background-color: lighten(desaturate($theme-color-main, 25), 50);
+  color: desaturate($theme-color-main, 25);
+  align-items: center;
+
+  &.clickable {
+    cursor: pointer;
+  }
+
+  img {
+    border-radius: $radius-medium 0 0 $radius-medium;
+  }
+
+}

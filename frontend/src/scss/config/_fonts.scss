@@ -1,0 +1,9 @@
+html {
+  font-size: 16px; /* This will be 1rem */
+}
+
+$fontsize-big: 1rem !default; //16px
+$fontsize-md: $fontsize-big * 0.875 !default; //14px
+$fontsize-sm: $fontsize-big * 0.75 !default; //12px
+$fontsize-tn: $fontsize-big * 0.625 !default; //10px
+$lineheight-base: $fontsize-big * 1.375 !default; //22px

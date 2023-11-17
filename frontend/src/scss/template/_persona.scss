@@ -1,0 +1,11 @@
+.card.bio .card-description {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.card .header {
+  .add {font-size: 1.5rem}
+}

@@ -1,0 +1,22 @@
+@import "../../../node_modules/bootstrap/scss/functions";
+@import "../../../node_modules/bootstrap/scss/variables";
+@import "../../../node_modules/bootstrap/scss/mixins";
+@import "../../../node_modules/bootstrap/scss/bootstrap";
+@import "../../../node_modules/bootstrap/scss/forms";
+@import "../../../node_modules/bootstrap/scss/alert";
+
+// overriding Bootstrap forms
+.form-control {
+  background-color: $form-input-bg;
+  color: $form-input-text;
+  border: 1px solid $form-input-border;
+  border-radius: $form-input-radius;
+  width: auto;
+}
+
+.form-control:focus {
+  color: $form-input-text-focus;
+  background-color: $form-input-bg-focus;
+  border-color: $form-input-border-focus;
+  box-shadow: 0 0 0 0.10rem transparentize($form-input-border-focus, 0.3);
+}

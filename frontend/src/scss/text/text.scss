@@ -1,0 +1,87 @@
+body {
+  font-size: $fontsize-md;
+  line-height: $lineheight-base;
+  font-weight: 400;
+}
+
+h1, h2, h3, h4, h5 {
+  color: $theme-color-main
+}
+
+h1 {
+  font-weight: 700;
+  font-size: $fontsize-big*2;
+  line-height: $fontsize-big*2.5;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: $fontsize-sm*2;
+  line-height: $fontsize-sm*2.5;
+
+}
+
+h3 {
+  font-weight: 700;
+  font-size: $fontsize-tn*2;
+  line-height: $fontsize-tn*2.5;
+}
+
+
+h4 {
+  font-weight: 700;
+  font-size: $fontsize-big;
+  line-height: $fontsize-big*1.1
+}
+
+h5 {
+  font-weight: 700;
+  font-size: $fontsize-sm;
+  line-height: $fontsize-sm*1.1;
+}
+
+a {
+  text-decoration: none;
+  color: $color-text;
+}
+
+a:visited {
+  color: $color-text-c1;
+}
+
+a:hover {
+  cursor: pointer;
+  color: $color-text-c1;
+}
+
+small, .small {
+  font-size: $fontsize-tn;
+}
+
+.breadcrumbs {
+  font-size: $fontsize-md;
+  color: darken($theme-color-main, 10);
+  margin-bottom: $padding-unit*4;
+
+  a, a:visited {
+      color: $color-text-c1;
+  }
+}
+
+.main-content {
+  font-size: $fontsize-md;
+  font-weight: 500;
+}
+
+.diff {
+  ins,del {
+    color: #211f1f;
+  }
+}
+
+strong {
+  color: $theme-color-main;
+  font-weight: bold;
+}
+
+@import "responsive";

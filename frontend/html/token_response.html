@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block main %}
+<main class="homepage" id="oidc_authorize">
+    <div class="top">
+        <div class="intro">
+            <div class="logo">OIDC Client</div>
+            <div class="cta">
+                <p>OpenID Connect provider: handling token response</p>
+            </div>
+        </div>
+        <a class="floating-button" href="/">Re-Authorize</a>
+        <div class="column-container" id="main-app"></div>
+    </div>
+</main>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    const CODE = "{{code}}";
+    const STATE = "{{STATE}}";
+    const TOKEN_RESPONSE = JSON.parse({{token_response | tojson}});
+</script>
+<script src="{{ STATIC_ROUTE }}/js/code-app.js"></script>
+{% endblock %}

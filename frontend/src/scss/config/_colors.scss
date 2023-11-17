@@ -1,0 +1,39 @@
+//colors
+$theme-color-main: #343434;
+$theme-color-accent: #bebebe;
+$theme-color-white: #ffff;
+
+
+//colors text
+$theme-color-text: darken(desaturate($theme-color-main, 55), 10);
+$theme-color-text-c: lighten(desaturate($theme-color-main, 35), 55);
+$theme-color-text-a: darken(desaturate($theme-color-accent, 55), 10);
+$theme-color-text-ac: lighten(desaturate($theme-color-accent, 35), 60);
+
+//colors functional
+$theme-color-success: #97C077;
+$theme-color-info: #82B7DD;
+$theme-color-alert: #CDBC66;
+$theme-color-danger: #CD6060;
+
+// computed colors
+$color-background: #f6f6f6;
+$color-background-1: darken($color-background, 5);
+$color-background-2: darken($color-background, 10);
+$color-background-3: darken($color-background, 15);
+
+$color-text: color-contrast($color-background, $theme-color-text, $theme-color-text-c);
+$color-text-c1: color-contrast($color-background-1, $theme-color-text, $theme-color-text-c);
+$color-text-c2: color-contrast($color-background-2, $theme-color-text, $theme-color-text-c);
+$color-text-c3: color-contrast($color-background-3, $theme-color-text, $theme-color-text-c);
+
+
+$theme-color-bg-main: #FFFFFF;
+$theme-color-bg-secondary: #F6F6F6;
+$theme-color-text-main: #1E1D27;
+$theme-color-text-secondary: #8B9AAB;
+$theme-color-text-tertiary: #FFFFFF;
+$theme-color-accent-main: #2A64B6;
+$theme-color-accent-secondary: #82B7DD;
+$theme-color-background: #D0DEE7;
+$theme-color-accent-gradient: var(--gradients-grad-4, linear-gradient(225deg, #C5D4E7 0%, #FFF 100%, #F6F6F6 100%));

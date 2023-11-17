@@ -1,0 +1,35 @@
+img {
+  display: block;
+  margin: 0;
+  max-height: 100%;
+  max-width: 100%;
+  height: auto;
+  width: auto;
+  object-fit: scale-down;
+  border-radius: $radius-medium;
+}
+
+.img-thumbnail {
+  width: 2.5*$fontsize-big;
+  height: 2.5*$fontsize-big;
+}
+
+.file-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  padding: $padding-unit-sm/4;
+  border-radius: $radius-medium;
+  background-color: $theme-color-white;
+  color: $theme-color-text-c;
+
+  * {
+    padding: $padding-unit-md;
+    color: $color-background;
+    font-size: $fontsize-big;
+  }
+
+}
+
