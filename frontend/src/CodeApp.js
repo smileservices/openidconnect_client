@@ -25,7 +25,7 @@ const APP_STATE = {
         // nonce: null,
     },
     token_response: null,
-    oidc_config: null,
+    oidc_config: PROVIDER_CONFIG,
     authorization_url: null
 }
 
@@ -63,15 +63,15 @@ function CodeApp() {
 
     // console.log(decoded_id_token);
 
-    useEffect(() => {
-        GET(PROVIDER, setConfigRequest)
-    }, [])
+    // useEffect(() => {
+    //     GET(PROVIDER, setConfigRequest)
+    // }, [])
 
-    useEffect(() => {
-        if (configRequest.success) {
-            dispatch({type: SET_OIDC_CONFIG, payload: configRequest.data});
-        }
-    }, [configRequest])
+    // useEffect(() => {
+    //     if (configRequest.success) {
+    //         dispatch({type: SET_OIDC_CONFIG, payload: configRequest.data});
+    //     }
+    // }, [configRequest])
 
     const reqHeaders = {"Authorization": "Bearer " + TOKEN_RESPONSE.access_token};
 
@@ -123,7 +123,7 @@ function CodeApp() {
         {state.oidc_config ?
         <div className="card">
             <div className="card-content">
-                <h2>Using the access account</h2>
+                <h2>Using the access token</h2>
                 <p>The access token can be used for accessing the scoped endpoints:</p>
                 <p>The endpoints url are all available in the oidc configuration response.</p>
                 <JSONPretty className="json-pretty" data={{
@@ -137,51 +137,26 @@ function CodeApp() {
                     <p>We can see in the token response that the access token is of Bearer type, which means that we
                         will use it inside an Authentication header.</p>
                 </div>
-                {userDataReq.data ?
-                    <div className="explain">
-                        <h3>Userdata</h3>
-                        <JSONPretty className="json-pretty" data={userDataReq.data} theme={JSONTHEME}></JSONPretty>
-                    </div> :
-                    <div className="explain">
-                        <button className="btn btn-secondary" onClick={() =>
-                            GET(state.oidc_config.userinfo_endpoint, setUserDataReq, reqHeaders)
-                        }>GET {state.oidc_config.userinfo_endpoint}</button>
-                    </div>
-                }
+                <div className="explain">
+                    <h3>Userdata</h3>
+                    <JSONPretty className="json-pretty" data={USERDATA_RESPONSE} theme={JSONTHEME}></JSONPretty>
+                </div>
                 <h3>Trustnet only endpoints</h3>
-                {socialsReq.data ?
-                    <div className="explain">
-                        <h3>User Linked Social Accounts</h3>
-                        <JSONPretty className="json-pretty" data={socialsReq.data} theme={JSONTHEME}></JSONPretty>
-                    </div> :
-                    <div className="explain">
-                        <button className="btn btn-secondary" onClick={() =>
-                            GET(state.oidc_config.user_socials_endpoint, setSocialsReq, reqHeaders)
-                        }>GET {state.oidc_config.user_socials_endpoint}</button>
-                    </div>
-                }
-                {reviewsReq.data ?
-                    <div className="explain">
-                        <h3>User Linked Reviews</h3>
-                        <JSONPretty className="json-pretty" data={reviewsReq.data} theme={JSONTHEME}></JSONPretty>
-                    </div> :
-                    <div className="explain">
-                        <button className="btn btn-secondary" onClick={() =>
-                            GET(state.oidc_config.user_reviews_endpoint, setReviewsReq, reqHeaders)
-                        }>GET {state.oidc_config.user_reviews_endpoint}</button>
-                    </div>
-                }
-                {trustReq.data ?
-                    <div className="explain">
-                        <h3>User Trust Rating</h3>
-                        <JSONPretty className="json-pretty" data={trustReq.data} theme={JSONTHEME}></JSONPretty>
-                    </div> :
-                    <div className="explain">
-                        <button className="btn btn-secondary" onClick={() =>
-                            GET(state.oidc_config.user_trust_endpoint, setTrustReq, reqHeaders)
-                        }>GET {state.oidc_config.user_trust_endpoint}</button>
-                    </div>
-                }
+
+                <div className="explain">
+                    <h3>User Linked Social Accounts</h3>
+                    <JSONPretty className="json-pretty" data={USERSOCIALS_RESPONSE} theme={JSONTHEME}></JSONPretty>
+                </div>
+
+                <div className="explain">
+                    <h3>User Linked Reviews</h3>
+                    <JSONPretty className="json-pretty" data={USERREVIEWS_RESPONSE} theme={JSONTHEME}></JSONPretty>
+                </div>
+
+                <div className="explain">
+                    <h3>User Trust Rating</h3>
+                    <JSONPretty className="json-pretty" data={USERTRUST_RESPONSE} theme={JSONTHEME}></JSONPretty>
+                </div>
             </div>
         </div> : ""}
     </Fragment>

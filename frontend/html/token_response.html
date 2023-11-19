@@ -19,7 +19,11 @@
 <script>
     const CODE = "{{code}}";
     const STATE = "{{STATE}}";
-    const TOKEN_RESPONSE = JSON.parse({{token_response | tojson}});
+    const TOKEN_RESPONSE = {{token_response | tojson}};
+    const USERDATA_RESPONSE = {{userdata_response | tojson}};
+    const USERSOCIALS_RESPONSE = {{user_socials_response | tojson}};
+    const USERREVIEWS_RESPONSE = {{user_reviews_response | tojson}};
+    const USERTRUST_RESPONSE = {{user_trust_response | tojson}};
 </script>
 <script src="{{ STATIC_ROUTE }}/js/code-app.js"></script>
 {% endblock %}

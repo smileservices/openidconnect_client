@@ -5,7 +5,7 @@ Connect identity provider.
 
 ## Techstack
 
-A simple web app running `FastAPI` in the backend and `ReactJs` in the frontend. `Nginx`= is running in a docker
+A simple web app running `FastAPI` in the backend and `ReactJs` in the frontend. `Nginx` is running in a docker
 container to serve the frontend assets
 
 ## Setting it up
@@ -23,4 +23,3 @@ Note: if the OIDC server is run locally as well make sure to bridge the networks
 
 Alternatively you can just run only the `nginx` service and start the `fastapi` app manually by executing the
 script `./run_fastapi`.
-

@@ -19,7 +19,7 @@ const STATE = {
         // state: null,
         // nonce: null,
     },
-    oidc_config: null,
+    oidc_config: PROVIDER_CONFIG,
     authorization_url: null
 }
 
@@ -61,7 +61,7 @@ function MainApp() {
     const [configRequest, setConfigRequest] = useReducer(requestReducer, REQUEST_STATE);
 
     useEffect(() => {
-        GET(PROVIDER, setConfigRequest)
+        dispatch({type: AUTHORIZATION_URL});
     }, [])
 
     const handleOIDCUrl = (e) => {
@@ -80,13 +80,6 @@ function MainApp() {
             dispatch({type: AUTHORIZATION_URL});
         }
     };
-
-    useEffect(() => {
-        if (configRequest.success) {
-            dispatch({type: SET_OIDC_CONFIG, payload: configRequest.data});
-            dispatch({type: AUTHORIZATION_URL});
-        }
-    }, [configRequest])
 
 
     return <div className="card-content">

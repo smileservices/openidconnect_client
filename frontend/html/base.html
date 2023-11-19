@@ -12,6 +12,7 @@
 <script src="{{ STATIC_ROUTE }}/js/react-bundle.js"></script>
 <script>
     const PROVIDER = "{{ provider }}";
+    const PROVIDER_CONFIG = {{provider_config | tojson}};
     const CLIENT_ID = "{{ client_id }}";
     const CLIENT_SECRET = "{{ client_secret }}";
     const REDIRECT_URI = "{{ redirect_uri }}";

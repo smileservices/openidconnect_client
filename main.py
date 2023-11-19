@@ -16,7 +16,7 @@ from dotenv import dotenv_values
 # TRUSTNET_CLIENT_SECRET = "uwje-h75ps6f9nem57mm77pojsz@04co"
 #
 # TRUSTNET_AUTHORIZE_ENDPOINT = "http://localhost:8080/authorize"
-TRUSTNET_ACCESS_TOKEN_ENDPOINT = "http://localhost:8080/token"
+# TRUSTNET_ACCESS_TOKEN_ENDPOINT = "http://localhost:8080/token"
 # TRUSTNET_PROFILE_ENDPOINT = "http://localhost:8088/user"
 # TRUSTNET_PROFILE_ENDPOINT = "http://localhost:8088/user"
 # redirect_url = "http://localhost:8081/auth/oidc"
@@ -28,9 +28,10 @@ config = dotenv_values(".env")
 
 @app.get("/")
 async def setup(request: Request):
+    provider_req = requests.get(config.get("provider"))
     return templates.TemplateResponse(
         "main.html",
-        {**config, "request": request}
+        {**config, "provider_config": provider_req.json(), "request": request}
     )
 
 
@@ -49,8 +50,25 @@ async def handle_code(
         "state": state if state else None
     }
     headers = {"Accept": "application/json"}
-    response = requests.post(TRUSTNET_ACCESS_TOKEN_ENDPOINT, json=data, headers=headers)
+    provider_config = requests.get(config.get("provider")).json()
+    response = requests.post(provider_config["token_endpoint"], json=data, headers=headers).json()
+    auth_header = f'{response["token_type"]} {response["access_token"]}'
+    response_userdata = requests.get(provider_config["userinfo_endpoint"], headers={"authorization": auth_header}).json()
+    response_user_socials = requests.get(provider_config["user_socials_endpoint"], headers={"authorization": auth_header}).json()
+    response_user_reviews = requests.get(provider_config["user_reviews_endpoint"], headers={"authorization": auth_header}).json()
+    response_user_trust = requests.get(provider_config["user_trust_endpoint"], headers={"authorization": auth_header}).json()
     return templates.TemplateResponse(
         "token_response.html",
-        {**config, "request": request, "token_response": json.dumps(response.json()), "code": code, "state": state}
+        {
+            **config,
+            "provider_config": provider_config,
+            "request": request,
+            "token_response": response,
+            "userdata_response": response_userdata,
+            "user_socials_response": response_user_socials,
+            "user_reviews_response": response_user_reviews,
+            "user_trust_response": response_user_trust,
+            "code": code,
+            "state": state
+        }
     )
