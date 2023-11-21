@@ -11,17 +11,17 @@
 
 
 //main colors
-$main-color-bg-main: #1E1D27;
+$main-color-bg-main: #716b8d;
 $main-color-bg-secondary: #645E5A;
 $main-text-primary: #FFFFFF;
-$main-accent-main: #4C71CA;
+$main-accent-main: $theme-color-accent-main;
 
 main.homepage {
   padding: 0;
 }
 
 .floating-button {
-  background-color: #00b798;
+  background-color: $main-accent-main;
   color: white;
   font-weight: bold;
   padding: 1rem;
@@ -30,23 +30,44 @@ main.homepage {
   right: 0.5rem;
   bottom: 4rem;
   border-radius: 1rem;
+
   &:hover {
-    background-color: #039d83;
+    background-color: $main-accent-main;
   }
 }
 
 
 .top {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-evenly;
   gap: 2rem;
   padding: 5rem 2rem 5rem 2rem;
   min-height: 100vh;
-
   background-color: $main-color-bg-main;
+
+  #main-app {
+    > * {
+      max-width: 800px;
+    }
+  }
+
+  .ui-form {
+    background-color: #f4f4f4;
+
+    .card-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .form-login {
+      max-width: 400px;
+    }
+  }
 
   .intro {
     height: 100%;

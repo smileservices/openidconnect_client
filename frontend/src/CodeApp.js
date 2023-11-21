@@ -56,7 +56,7 @@ function CodeApp() {
     const decoded_access_token = KJUR.jws.JWS.parse(TOKEN_RESPONSE.access_token);
 
     return <Fragment>
-        <div className="card">
+        <div className="card ui-form">
             <div className="card-content">
                 <h2>The onboarded user</h2>
                 <UserProfile userData={USERDATA_RESPONSE} userReviews={USERREVIEWS_RESPONSE}

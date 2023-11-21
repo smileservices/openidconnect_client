@@ -83,18 +83,22 @@ function MainApp() {
 
 
     return <Fragment>
-        <div className="card">
+        <div className="card ui-form">
             <div className="card-content">
                 <h2>User sees this</h2>
-                <form action="">
-                    <div className="buttons-container">
-                        <button type="submit" className="btn" onClick={e => {
-                            e.preventDefault();
-                            window.location = state.authorization_url;
-                        }}>Sign-in with TrustNet
-                        </button>
-                    </div>
-                </form>
+                <div className="profile-container form-login">
+                    <div className="profile-header"><h3>Login or signup</h3></div>
+                    <form action="">
+                        <p>Just click the button to login or signup</p>
+                        <div className="buttons-container">
+                            <button type="submit" className="btn" onClick={e => {
+                                e.preventDefault();
+                                window.location = state.authorization_url;
+                            }}>Sign-in with TrustNet
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
         <div className="card">

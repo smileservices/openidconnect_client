@@ -18,13 +18,13 @@ const UserProfile = ({userData, userTrust, userSocials, userReviews}) => (
         <div className="verifications">
             <h4>Verified IDs</h4>
             <div className="id-verifications">
-                {userTrust.verifications.length > 0 ? "" : <EmptyElement name="trust_id"/>}
+                {userTrust.verifications.length > 0 ? "" : <EmptyElement name="verifications"/>}
                 {userTrust.verifications.map(v => <p>{v.document} on {formatDatetime(v.created_at)}</p>)}
             </div>
         </div>
         <div className="about">
             <h3>About</h3>
-            {userData.about}
+            {userData.about ? userData.about : <EmptyElement name="about text"/>}
         </div>
 
         <div className="contacts-container">
