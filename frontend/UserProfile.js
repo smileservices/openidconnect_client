@@ -47,7 +47,10 @@ const UserProfile = ({userData, userTrust, userSocials, userReviews}) => (
             <div className="social-accounts">
                 <h3>Socials</h3>
                 {userSocials.length === 0 ? <EmptyElement name="socials"/> : ""}
-                {userSocials.map(s => <div className="social-account"><a href={s.aggregates[0].url}>{s.platform}</a></div>)}
+                {userSocials.map(s => s.aggregates.length > 0 && s.aggregates[0].url ?
+                    <div className="social-account"><a href={s.aggregates[0].url}>{s.platform}</a></div> :
+                    <div className="social-account">{s.platform}: {s.name}</div>
+                )}
             </div>
         </div>
         {/*<div className="profile-content">*/}
