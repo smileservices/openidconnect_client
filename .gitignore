@@ -5,8 +5,8 @@ venv
 alembic.ini
 
 # npm assets
-/frontend/static/css/
-/frontend/static/js/
+#/frontend/static/css/
+#/frontend/static/js/
 /frontend/node_modules/
 
 # pycharm specific
