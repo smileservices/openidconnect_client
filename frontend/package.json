@@ -30,6 +30,12 @@
     "webpack-cli": "^3.3.11"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.2.6",
+    "@babel/plugin-proposal-optional-chaining": "^7.21.0",
+    "antd": "^5.11.2",
+    "carbon-components": "^10.58.10",
+    "carbon-components-react": "^8.42.1",
+    "carbon-icons": "^7.0.7",
     "diff-match-patch": "^1.0.5",
     "jsrsasign": "^10.8.6",
     "jsrsasign-util": "^1.0.5",

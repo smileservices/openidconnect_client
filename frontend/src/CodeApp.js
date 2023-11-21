@@ -1,12 +1,11 @@
 import ReactDOM from "react-dom";
 import {Fragment, useEffect, useReducer} from "react";
-import {Input} from "./reusables/forms/form_elements";
-import {REQUEST_STATE, requestReducer} from "./reusables/forms/forms";
-import {GET, POST} from "./reusables/requests";
-import Alert from "./reusables/Alert";
 import JSONPretty from 'react-json-pretty';
 import {getParameterByName} from "./reusables/utils";
 import {KJUR} from 'jsrsasign';
+
+
+import UserProfile from "../UserProfile";
 
 var JSONTHEME = require('react-json-pretty/dist/1337');
 
@@ -51,35 +50,22 @@ const REDUCER = (state, action) => {
 
 function CodeApp() {
     const [state, dispatch] = useReducer(REDUCER, APP_STATE);
-    const [configRequest, setConfigRequest] = useReducer(requestReducer, REQUEST_STATE);
-    const [userDataReq, setUserDataReq] = useReducer(requestReducer, REQUEST_STATE);
-    const [reviewsReq, setReviewsReq] = useReducer(requestReducer, REQUEST_STATE);
-    const [trustReq, setTrustReq] = useReducer(requestReducer, REQUEST_STATE);
-    const [socialsReq, setSocialsReq] = useReducer(requestReducer, REQUEST_STATE);
 
     // console.log(TOKEN_RESPONSE.id_token);
     const decoded_id_token = KJUR.jws.JWS.parse(TOKEN_RESPONSE.id_token);
     const decoded_access_token = KJUR.jws.JWS.parse(TOKEN_RESPONSE.access_token);
 
-    // console.log(decoded_id_token);
-
-    // useEffect(() => {
-    //     GET(PROVIDER, setConfigRequest)
-    // }, [])
-
-    // useEffect(() => {
-    //     if (configRequest.success) {
-    //         dispatch({type: SET_OIDC_CONFIG, payload: configRequest.data});
-    //     }
-    // }, [configRequest])
-
-    const reqHeaders = {"Authorization": "Bearer " + TOKEN_RESPONSE.access_token};
-
-
     return <Fragment>
         <div className="card">
             <div className="card-content">
-                <h2>The Token Endpoint</h2>
+                <h2>The onboarded user</h2>
+                <UserProfile userData={USERDATA_RESPONSE} userReviews={USERREVIEWS_RESPONSE}
+                             userSocials={USERSOCIALS_RESPONSE} userTrust={USERTRUST_RESPONSE}/>
+            </div>
+        </div>
+        <div className="card">
+            <div className="card-content">
+                <h2>The code...</h2>
                 <p>OpenId Connect about docs about <a
                     href="https://openid.net/specs/openid-connect-core-1_0.html#TokenRequest">getting
                     the access token</a></p>
@@ -121,44 +107,44 @@ function CodeApp() {
             </div>
         </div>
         {state.oidc_config ?
-        <div className="card">
-            <div className="card-content">
-                <h2>Using the access token</h2>
-                <p>The access token can be used for accessing the scoped endpoints:</p>
-                <p>The endpoints url are all available in the oidc configuration response.</p>
-                <JSONPretty className="json-pretty" data={{
-                    userdata: "details about the user (persona)",
-                    social_accounts: "the user's linked social accounts (persona)",
-                    reviews: "the user's reviews (persona)",
-                    trust: "the user's trust score (account)",
-                }} theme={JSONTHEME}></JSONPretty>
-                <div className="explain">
-                    <h3>Setting up the requests header</h3>
-                    <p>We can see in the token response that the access token is of Bearer type, which means that we
-                        will use it inside an Authentication header.</p>
-                </div>
-                <div className="explain">
-                    <h3>Userdata</h3>
-                    <JSONPretty className="json-pretty" data={USERDATA_RESPONSE} theme={JSONTHEME}></JSONPretty>
-                </div>
-                <h3>Trustnet only endpoints</h3>
+            <div className="card">
+                <div className="card-content">
+                    <h2>Using the access token</h2>
+                    <p>The access token can be used for accessing the scoped endpoints:</p>
+                    <p>The endpoints url are all available in the oidc configuration response.</p>
+                    <JSONPretty className="json-pretty" data={{
+                        userdata: "details about the user (persona)",
+                        social_accounts: "the user's linked social accounts (persona)",
+                        reviews: "the user's reviews (persona)",
+                        trust: "the user's trust score (account)",
+                    }} theme={JSONTHEME}></JSONPretty>
+                    <div className="explain">
+                        <h3>Setting up the requests header</h3>
+                        <p>We can see in the token response that the access token is of Bearer type, which means that we
+                            will use it inside an Authentication header.</p>
+                    </div>
+                    <div className="explain">
+                        <h3>Userdata</h3>
+                        <JSONPretty className="json-pretty" data={USERDATA_RESPONSE} theme={JSONTHEME}></JSONPretty>
+                    </div>
+                    <h3>Trustnet only endpoints</h3>
 
-                <div className="explain">
-                    <h3>User Linked Social Accounts</h3>
-                    <JSONPretty className="json-pretty" data={USERSOCIALS_RESPONSE} theme={JSONTHEME}></JSONPretty>
-                </div>
+                    <div className="explain">
+                        <h3>User Linked Social Accounts</h3>
+                        <JSONPretty className="json-pretty" data={USERSOCIALS_RESPONSE} theme={JSONTHEME}></JSONPretty>
+                    </div>
 
-                <div className="explain">
-                    <h3>User Linked Reviews</h3>
-                    <JSONPretty className="json-pretty" data={USERREVIEWS_RESPONSE} theme={JSONTHEME}></JSONPretty>
-                </div>
+                    <div className="explain">
+                        <h3>User Linked Reviews</h3>
+                        <JSONPretty className="json-pretty" data={USERREVIEWS_RESPONSE} theme={JSONTHEME}></JSONPretty>
+                    </div>
 
-                <div className="explain">
-                    <h3>User Trust Rating</h3>
-                    <JSONPretty className="json-pretty" data={USERTRUST_RESPONSE} theme={JSONTHEME}></JSONPretty>
+                    <div className="explain">
+                        <h3>User Trust Rating</h3>
+                        <JSONPretty className="json-pretty" data={USERTRUST_RESPONSE} theme={JSONTHEME}></JSONPretty>
+                    </div>
                 </div>
-            </div>
-        </div> : ""}
+            </div> : ""}
     </Fragment>
 }
 

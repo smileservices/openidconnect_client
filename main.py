@@ -23,7 +23,7 @@ from dotenv import dotenv_values
 
 app = FastAPI()
 templates = Jinja2Templates(directory="frontend/html")
-config = dotenv_values(".env")
+config = dotenv_values("local.env")
 
 
 @app.get("/")

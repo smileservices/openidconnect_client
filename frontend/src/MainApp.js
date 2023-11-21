@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom";
-import {useEffect, useReducer} from "react";
+import {Fragment, useEffect, useReducer} from "react";
 import {Input} from "./reusables/forms/form_elements";
 import {REQUEST_STATE, requestReducer} from "./reusables/forms/forms";
 import {GET} from "./reusables/requests";
@@ -82,85 +82,98 @@ function MainApp() {
     };
 
 
-    return <div className="card-content">
-        <h2>Set up OIDC details</h2>
-        <form action="">
-            <Input
-                name="provider"
-                label="Provider URL"
-                inputProps={{
-                    value: PROVIDER,
-                    type: 'text',
-                    disabled: true,
-                    required: true,
-                    placeholder: "ex: http://provider.app/.well-known/openid-configuration",
-                    onChange: handleOIDCUrl
-                }}
-                error={state.errors ? state.errors.provider : false}
-            />
-            <div className="form-group">
-                <label>OIDC Server Configuration</label>
-                {state.oidc_config ?
-                    <JSONPretty className="json-pretty" data={state.oidc_config} theme={JSONTHEME}></JSONPretty> :
-                    <Alert type="info" text="Write Provider URL to the OIDC configuration" hideable={false}/>
-                }
+    return <Fragment>
+        <div className="card">
+            <div className="card-content">
+                <h2>User sees this</h2>
+                <form action="">
+                    <div className="buttons-container">
+                        <button type="submit" className="btn" onClick={e => {
+                            e.preventDefault();
+                            window.location = state.authorization_url;
+                        }}>Sign-in with TrustNet
+                        </button>
+                    </div>
+                </form>
             </div>
-            <Input
-                name="client_id"
-                label="Client ID"
-                inputProps={{
-                    value: state.client_details.client_id,
-                    type: 'text',
-                    disabled: false,
-                    required: true,
-                    placeholder: "the Client ID of your registered client",
-                    onChange: handleChange
-                }}
-                error={state.errors ? state.errors.client_id : false}
-            />
-            <Input
-                name="response_type"
-                label="Response type"
-                inputProps={{
-                    value: state.client_details.response_type,
-                    type: 'text',
-                    disabled: true,
-                    required: true,
-                    onChange: handleChange
-                }}
-                error={state.errors ? state.errors.response_type : false}
-            />
-            <Input
-                name="scope"
-                label="Scope"
-                inputProps={{
-                    value: state.client_details.scope,
-                    type: 'text',
-                    disabled: false,
-                    required: true,
-                    placeholder: "ex: openid trust reviews",
-                    onChange: handleChange
-                }}
-                error={state.errors ? state.errors.scope : false}
-            />
+        </div>
+        <div className="card">
+            <div className="card-content">
+                <h2>What goes on in the engineering side</h2>
+                <form action="">
+                    <Input
+                        name="provider"
+                        label="Provider URL"
+                        inputProps={{
+                            value: PROVIDER,
+                            type: 'text',
+                            disabled: true,
+                            required: true,
+                            placeholder: "ex: http://provider.app/.well-known/openid-configuration",
+                            onChange: handleOIDCUrl
+                        }}
+                        error={state.errors ? state.errors.provider : false}
+                    />
+                    <div className="form-group">
+                        <label>OIDC Server Configuration</label>
+                        {state.oidc_config ?
+                            <JSONPretty className="json-pretty" data={state.oidc_config}
+                                        theme={JSONTHEME}></JSONPretty> :
+                            <Alert type="info" text="Write Provider URL to the OIDC configuration" hideable={false}/>
+                        }
+                    </div>
+                    <Input
+                        name="client_id"
+                        label="Client ID"
+                        inputProps={{
+                            value: state.client_details.client_id,
+                            type: 'text',
+                            disabled: false,
+                            required: true,
+                            placeholder: "the Client ID of your registered client",
+                            onChange: handleChange
+                        }}
+                        error={state.errors ? state.errors.client_id : false}
+                    />
+                    <Input
+                        name="response_type"
+                        label="Response type"
+                        inputProps={{
+                            value: state.client_details.response_type,
+                            type: 'text',
+                            disabled: true,
+                            required: true,
+                            onChange: handleChange
+                        }}
+                        error={state.errors ? state.errors.response_type : false}
+                    />
+                    <Input
+                        name="scope"
+                        label="Scope"
+                        inputProps={{
+                            value: state.client_details.scope,
+                            type: 'text',
+                            disabled: false,
+                            required: true,
+                            placeholder: "ex: openid trust reviews",
+                            onChange: handleChange
+                        }}
+                        error={state.errors ? state.errors.scope : false}
+                    />
 
-            <div className="form-group">
-                <label>Authorization URL</label>
-                {state.authorization_url ?
-                    // <span className="url">{state.authorization_url}</span> :
-                    <JSONPretty className="json-pretty" data={state.authorization_url} theme={JSONTHEME}></JSONPretty> :
-                    <Alert type="info" text="Write Provider URL to the OIDC configuration" hideable={false}/>
-                }
+                    <div className="form-group">
+                        <label>Authorization URL</label>
+                        {state.authorization_url ?
+                            // <span className="url">{state.authorization_url}</span> :
+                            <JSONPretty className="json-pretty" data={state.authorization_url}
+                                        theme={JSONTHEME}></JSONPretty> :
+                            <Alert type="info" text="Write Provider URL to the OIDC configuration" hideable={false}/>
+                        }
+                    </div>
+                </form>
             </div>
-            <div className="buttons-container">
-                <button type="submit" className="btn" onClick={e => {
-                    e.preventDefault();
-                    window.location = state.authorization_url;
-                }}>Authorize
-                </button>
-            </div>
-        </form>
-    </div>
+        </div>
+    </Fragment>
 }
 
 ReactDOM.render(<MainApp/>, document.getElementById('main-app'));
