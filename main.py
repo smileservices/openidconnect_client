@@ -24,7 +24,7 @@ from dotenv import dotenv_values
 
 app = FastAPI()
 templates = Jinja2Templates(directory="frontend/html")
-config = dotenv_values(".env")
+config = dotenv_values("remote.env")
 
 
 @app.get("/")
@@ -78,7 +78,7 @@ async def handle_code(
             **config,
             "provider_config": provider_config,
             "request": request,
-            "token_response": response,
+            "token_response": response_data,
             "userdata_response": response_userdata,
             "user_socials_response": response_user_socials,
             "user_reviews_response": response_user_reviews,
